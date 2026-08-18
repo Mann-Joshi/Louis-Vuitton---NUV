@@ -19,5 +19,8 @@ from django.urls import path
 from LV import views
 
 urlpatterns = [
-    path('', views.LV.as_view()),
+    path('', views.LV.as_view(),name="dashboard"),
+    path('men/', views.men.as_view(),name="men"),
+    path('women/', views.women.as_view(),name="women"),
+    
 ]
