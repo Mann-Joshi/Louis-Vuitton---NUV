@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Dynamic Title Block -->
+    <title>{% block title %}MAISON | Luxury Redefined{% endblock %}</title>
+    
+    <style>
+        /* GLOBAL STYLES (Applies to all pages) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .brand-logo {
+            font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        /* HEADER NAVIGATION */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .nav-links, .nav-icons {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .brand-logo {
+            font-size: 2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 4rem 3rem;
+            background-color: #fafafa;
+            text-align: center;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-links a {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #555555;
+        }
+
+        .footer-links a:hover {
+            color: #000000;
+        }
+
+        .copyright {
+            font-size: 0.7rem;
+            color: #999999;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Global Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Block for page-specific CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header>
+        <nav class="nav-links">
+            <!-- Tip: Replace # with Django url tags later, e.g., {% url 'women' %} -->
+            <a href="#">Women</a>
+            <a href="#">Men</a>
+            <a href="#">Art of Gifting</a>
+        </nav>
+        <div class="brand-logo"><a href="/">MAISON</a></div>
+        <div class="nav-icons">
+            <a href="#">Search</a>
+            <a href="#">Cart (0)</a>
+        </div>
+    </header>
+
+    <!-- DYNAMIC CONTENT AREA -->
+    <main>
+        {% block content %}
+        <!-- The specific content of each page will be injected here -->
+        {% endblock %}
+    </main>
+
+    <!-- GLOBAL FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Client Services</a>
+            <a href="#">Boutiques</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Legal & Privacy</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 MAISON. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+</body>
+</html>
