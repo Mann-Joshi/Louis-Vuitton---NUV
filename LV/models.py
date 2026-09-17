@@ -32,9 +32,10 @@ class Product(models.Model):
         default=0
     )
 
-    product_img_url = models.URLField(
-        max_length=500,
-        blank=True
+    product_img = models.ImageField(
+        upload_to='products/',
+        blank=True,
+        null=True
     )
 
 

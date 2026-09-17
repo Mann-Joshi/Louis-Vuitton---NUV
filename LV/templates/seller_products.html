@@ -1,0 +1,30 @@
+{% extends 'seller_base.html' %}
+{% block content %}
+<h2>Products</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Active</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.product_id }}</td>
+            <td>{{ product.product_title }}</td>
+            <td>{{ product.product_price }}</td>
+            <td>{{ product.available_qty }}</td>
+            <td>{{ product.is_active }}</td>
+            <td>
+                <a href="{% url 'seller_update_product' product.product_id %}" class="btn btn-sm btn-primary">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

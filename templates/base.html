@@ -108,12 +108,11 @@
     <!-- GLOBAL HEADER -->
     <header>
         <nav class="nav-links">
-            <!-- Tip: Replace # with Django url tags later, e.g., {% url 'women' %} -->
-            <a href="#">Women</a>
-            <a href="#">Men</a>
-            <a href="#">Art of Gifting</a>
+            <a href="{% url 'women' %}">Women</a>
+            <a href="{% url 'men' %}">Men</a>
+            <a href="{% url 'construction' %}">Art of Gifting</a>
         </nav>
-        <div class="brand-logo"><a href="/">MAISON</a></div>
+        <div class="brand-logo"><a href="{% url 'dashboard' %}">MAISON</a></div>
         <div class="nav-icons">
             <a href="#">Search</a>
             <a href="#">Cart (0)</a>

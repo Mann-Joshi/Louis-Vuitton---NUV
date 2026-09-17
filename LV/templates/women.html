@@ -148,70 +148,18 @@
 
 <!-- Product Grid -->
 <section class="product-grid">
-    <!-- Product 1 -->
+    {% for product in products %}
     <div class="product-card">
         <div class="product-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=800&auto=format&fit=crop" alt="Signature Leather Tote">
+            <img src="{{ product.product_img_url }}" alt="{{ product.product_title }}">
         </div>
         <div class="product-info">
-            <h3 class="product-title">Signature Leather Tote</h3>
-            <p class="product-price">$2,450.00</p>
+            <h3 class="product-title">{{ product.product_title }}</h3>
+            <p class="product-price">${{ product.product_price }}</p>
         </div>
     </div>
-
-    <!-- Product 2 -->
-    <div class="product-card">
-        <div class="product-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800&auto=format&fit=crop" alt="Silk Evening Gown">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Pleated Silk Midi Dress</h3>
-            <p class="product-price">$3,100.00</p>
-        </div>
-    </div>
-
-    <!-- Product 3 -->
-    <div class="product-card">
-        <div class="product-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop" alt="Classic Pumps">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Maison Classic Pumps</h3>
-            <p class="product-price">$980.00</p>
-        </div>
-    </div>
-
-    <!-- Product 4 -->
-    <div class="product-card">
-        <div class="product-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop" alt="Oversized Sunglasses">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Oversized Acetate Sunglasses</h3>
-            <p class="product-price">$450.00</p>
-        </div>
-    </div>
-
-    <!-- Product 5 -->
-    <div class="product-card">
-        <div class="product-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop" alt="Wool Overcoat">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Cashmere Blend Overcoat</h3>
-            <p class="product-price">$4,200.00</p>
-        </div>
-    </div>
-
-    <!-- Product 6 -->
-    <div class="product-card">
-        <div class="product-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1594035919808-9c507cbc551f?q=80&w=800&auto=format&fit=crop" alt="Chain Mini Bag">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Quilted Chain Mini Bag</h3>
-            <p class="product-price">$1,850.00</p>
-        </div>
-    </div>
+    {% empty %}
+    <p style="grid-column: span 3; text-align: center;">No products available at the moment.</p>
+    {% endfor %}
 </section>
 {% endblock %}
